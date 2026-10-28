@@ -343,7 +343,19 @@ const vocabData = [
     { category: "Số đếm & Tiền tệ", kana: "じゅうはっさい", kanji: "十八", romaji: "juu hassai", meaning: "18 tuổi (Cách đếm đặc biệt)" },
     { category: "Số đếm & Tiền tệ", kana: "はたち", kanji: "二十", romaji: "hatachi", meaning: "20 tuổi (Cách đếm đặc biệt)" },
 
-    // 12. Thể thao & Sở thích
+    // 12. Số thứ tự (1-10) (1-10)
+    { category: "Số thứ tự (1-10)", kana: "ひとつ", kanji: "一つ", romaji: "hitotsu", meaning: "1 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "ふたつ", kanji: "二つ", romaji: "futatsu", meaning: "2 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "みっつ", kanji: "三つ", romaji: "mittsu", meaning: "3 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "よっつ", kanji: "四つ", romaji: "yottsu", meaning: "4 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "いつつ", kanji: "五つ", romaji: "itsutsu", meaning: "5 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "むっつ", kanji: "六つ", romaji: "muttsu", meaning: "6 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "ななつ", kanji: "七つ", romaji: "nanatsu", meaning: "7 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "やっつ", kanji: "八つ", romaji: "yattsu", meaning: "8 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "ここのつ", kanji: "九つ", romaji: "kokonotsu", meaning: "9 cái (vật)" },
+    { category: "Số thứ tự (1-10)", kana: "とお", kanji: "十", romaji: "too", meaning: "10 cái (vật)" },
+
+    // 13. Thể thao & Sở thích
     { category: "Thể thao & Sở thích", kana: "しゅみ", kanji: "趣味", romaji: "shumi", meaning: "Sở thích" },
     { category: "Thể thao & Sở thích", kana: "スポーツ", kanji: "Sports", romaji: "supo-tsu", meaning: "Thể thao" },
     { category: "Thể thao & Sở thích", kana: "サッカー", kanji: "Soccer", romaji: "sakka-", meaning: "Bóng đá" },
