@@ -340,6 +340,7 @@ const vocabData = [
     { category: "Số đếm & Tiền tệ", kana: "まん", kanji: "万", romaji: "man", meaning: "10.000 (Chục nghìn / Vạn)" },
     { category: "Số đếm & Tiền tệ", kana: "えん", kanji: "円", romaji: "en", meaning: "Yên (Tiền tệ Nhật)" },
     { category: "Số đếm & Tiền tệ", kana: "いくら", kanji: "幾ら", romaji: "ikura", meaning: "Bao nhiêu tiền" },
+    { category: "Số đếm & Tiền tệ", kana: "じゅうはっさい", kanji: "十八", romaji: "juu hassai", meaning: "18 tuổi (Cách đếm đặc biệt)" },
     { category: "Số đếm & Tiền tệ", kana: "はたち", kanji: "二十", romaji: "hatachi", meaning: "20 tuổi (Cách đếm đặc biệt)" },
 
     // 12. Thể thao & Sở thích
