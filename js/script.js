@@ -5,7 +5,7 @@ function playAudio(text) {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'ja-JP';
-        utterance.rate = 1.0;
+        utterance.rate = 0.75;
         utterance.pitch = 1.0;
         window.speechSynthesis.speak(utterance);
     } else {
