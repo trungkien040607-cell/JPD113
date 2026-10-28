@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPD113 - Learning Hub (Full Bai 1-3 & Docx)</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Header & Navigation -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fa-solid fa-torii-gate me-2 text-danger"></i>JPD113 Learning Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav nav-pills" id="mainTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="kana-tab" data-bs-toggle="pill" data-bs-target="#kana-content" type="button" role="tab"><i class="fa-solid fa-font me-1"></i> Bảng Chữ Cái</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="vocab-tab" data-bs-toggle="pill" data-bs-target="#vocab-content" type="button" role="tab"><i class="fa-solid fa-book-open me-1"></i> Kho Từ Vựng (Trọn Bộ)</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="grammar-tab" data-bs-toggle="pill" data-bs-target="#grammar-content" type="button" role="tab"><i class="fa-solid fa-comments me-1"></i> Speaking Q&A & Ngữ Pháp</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="quiz-tab" data-bs-toggle="pill" data-bs-target="#quiz-content" type="button" role="tab"><i class="fa-solid fa-brain me-1"></i> Bài Tập Trắc Nghiệm</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container my-4">
+        <div class="tab-content" id="mainTabContent">
+
+            <!-- 1. BẢNG CHỮ CÁI -->
+            <div class="tab-pane fade show active" id="kana-content" role="tabpanel">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h2 class="h4 fw-bold mb-3 text-primary"><i class="fa-solid fa-table me-2"></i>Bảng Chữ Cái (Hiragana & Katakana)</h2>
+                        <p class="text-muted">Bấm vào từng ô chữ để nghe phát âm chuẩn giọng Nhật Bản.</p>
+                        
+                        <div class="btn-group mb-4" role="group">
+                            <input type="radio" class="btn-check" name="kanaType" id="hiraganaRadio" autocomplete="off" checked>
+                            <label class="btn btn-outline-primary px-4" for="hiraganaRadio">Hiragana (Chữ mềm)</label>
+
+                            <input type="radio" class="btn-check" name="kanaType" id="katakanaRadio" autocomplete="off">
+                            <label class="btn btn-outline-primary px-4" for="katakanaRadio">Katakana (Chữ cứng)</label>
+                        </div>
+
+                        <!-- Hiragana Table -->
+                        <div id="hiraganaContainer" class="kana-section">
+                            <h5 class="fw-bold text-secondary mb-3">1. Nguyên âm & Phụ âm cơ bản (Seion)</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center align-middle kana-table">
+                                    <thead class="table-dark">
+                                        <tr><th>Hàng</th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+                                    </thead>
+                                    <tbody id="h-seion"></tbody>
+                                </table>
+                            </div>
+
+                            <h5 class="fw-bold text-secondary mt-4 mb-3">2. Âm đục (Dakuon) & Âm bán đục (Handakuon)</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center align-middle kana-table">
+                                    <thead class="table-secondary">
+                                        <tr><th>Hàng</th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+                                    </thead>
+                                    <tbody id="h-dakuon"></tbody>
+                                </table>
+                            </div>
+
+                            <h5 class="fw-bold text-secondary mt-4 mb-3">3. Âm ghép (Yōon)</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center align-middle kana-table">
+                                    <thead class="table-secondary">
+                                        <tr><th>Hàng</th><th>ya</th><th>yu</th><th>yo</th></tr>
+                                    </thead>
+                                    <tbody id="h-yoon"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Katakana Table -->
+                        <div id="katakanaContainer" class="kana-section d-none">
+                            <h5 class="fw-bold text-secondary mb-3">1. Nguyên âm & Phụ âm cơ bản (Seion)</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center align-middle kana-table">
+                                    <thead class="table-dark">
+                                        <tr><th>Hàng</th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+                                    </thead>
+                                    <tbody id="k-seion"></tbody>
+                                </table>
+                            </div>
+
+                            <h5 class="fw-bold text-secondary mt-4 mb-3">2. Âm đục (Dakuon) & Âm bán đục (Handakuon)</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center align-middle kana-table">
+                                    <thead class="table-secondary">
+                                        <tr><th>Hàng</th><th>a</th><th>i</th><th>u</th><th>e</th><th>o</th></tr>
+                                    </thead>
+                                    <tbody id="k-dakuon"></tbody>
+                                </table>
+                            </div>
+
+                            <h5 class="fw-bold text-secondary mt-4 mb-3">3. Âm ghép (Yōon)</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center align-middle kana-table">
+                                    <thead class="table-secondary">
+                                        <tr><th>Hàng</th><th>ya</th><th>yu</th><th>yo</th></tr>
+                                    </thead>
+                                    <tbody id="k-yoon"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. KHO TỪ VỰNG TOÀN DIỆN (PHÂN TRANG & LỌC CATEGORY) -->
+            <div class="tab-pane fade" id="vocab-content" role="tabpanel">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                            <h2 class="h4 fw-bold text-primary mb-0"><i class="fa-solid fa-book me-2"></i>Kho Từ Vựng (Bao gồm file Docx mới & Note Viết Tay)</h2>
+                            <div class="d-flex gap-2">
+                                <select id="categoryFilter" class="form-select">
+                                    <option value="all">📁 Tất cả danh mục</option>
+                                    <option value="Thông tin & Con người">👤 Thông tin & Con người</option>
+                                    <option value="Quốc gia & Ngôn ngữ">🌍 Quốc gia & Ngôn ngữ</option>
+                                    <option value="Nghề nghiệp">💼 Nghề nghiệp</option>
+                                    <option value="Đồ vật & Mua sắm">📚 Đồ vật & Mua sắm</option>
+                                    <option value="Đồ ăn & Thức uống">🍜 Đồ ăn & Thức uống</option>
+                                    <option value="Vị trí & Tòa nhà (Docx)">📍 Vị trí & Tòa nhà (Docx)</option>
+                                    <option value="Thời gian & Buổi (Docx)">⏰ Thời gian & Buổi (Docx)</option>
+                                    <option value="Tháng (1-12)">📅 Tháng (1-12)</option>
+                                    <option value="Ngày trong tháng (1-31)">📆 Ngày trong tháng (1-31)</option>
+                                    <option value="Tầng lầu (1-10)">🏢 Tầng lầu (1-10)</option>
+                                    <option value="Số đếm & Tiền tệ">💰 Số đếm & Tiền tệ</option>
+                                    <option value="Thể thao & Sở thích">⚽ Thể thao & Sở thích</option>
+                                </select>
+                                <input type="text" id="vocabSearch" class="form-control" placeholder="Tìm kiếm từ vựng...">
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Danh mục</th>
+                                        <th>Kana / Romaji</th>
+                                        <th>Kanji</th>
+                                        <th>Ý nghĩa Tiếng Việt</th>
+                                        <th class="text-end">Phát âm</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vocabTableBody"></tbody>
+                            </table>
+                        </div>
+
+                        <nav class="mt-4">
+                            <ul class="pagination justify-content-center" id="paginationContainer"></ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. SPEAKING Q&A & NGỮ PHÁP -->
+            <div class="tab-pane fade" id="grammar-content" role="tabpanel">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h2 class="h4 fw-bold text-primary mb-3"><i class="fa-solid fa-comments me-2"></i>Đề Cương Ôn Tập Speaking 113 & Cấu Trúc Thời Gian (Docx)</h2>
+                        <div id="grammarListContainer"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. BÀI TẬP TRẮC NGHIỆM -->
+            <div class="tab-pane fade" id="quiz-content" role="tabpanel">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4 text-center">
+                        <h2 class="h4 fw-bold text-primary mb-3"><i class="fa-solid fa-brain me-2"></i>Phòng Luyện Thi & Trắc Nghiệm Ngẫu Nhiên</h2>
+                        <p class="text-muted">Trộn ngẫu nhiên câu hỏi từ file Docx, ghi chú viết tay và đề cương Speaking.</p>
+                        <button id="startQuizBtn" class="btn btn-danger btn-lg px-5 shadow"><i class="fa-solid fa-play me-2"></i>Bắt Đầu Làm Bài Mới</button>
+
+                        <div id="quizContainer" class="d-none text-start mt-4">
+                            <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded mb-3">
+                                <span id="quizProgress" class="fw-bold text-secondary">Câu hỏi: 1 / 10</span>
+                                <span id="quizScore" class="fw-bold text-success">Điểm: 0</span>
+                            </div>
+                            <div class="card border p-4 mb-3">
+                                <h5 id="quizQuestionText" class="fw-bold mb-3"></h5>
+                                <div id="quizOptions" class="d-grid gap-2"></div>
+                            </div>
+                            <button id="nextQuizBtn" class="btn btn-primary px-4 d-none">Câu tiếp theo <i class="fa-solid fa-arrow-right ms-1"></i></button>
+                        </div>
+
+                        <div id="quizResultContainer" class="d-none mt-4 p-4 bg-white border rounded shadow-sm">
+                            <h3 class="text-success fw-bold mb-3"><i class="fa-solid fa-award me-2"></i>Kết Quả Bài Làm</h3>
+                            <p class="fs-4" id="finalScoreText"></p>
+                            <button id="restartQuizBtn" class="btn btn-dark px-4 mt-2"><i class="fa-solid fa-rotate-right me-1"></i>Làm lại bài khác</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2026 JPD113 Learning Hub | Trần Trung Kiên</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
