@@ -13,7 +13,6 @@ function playAudio(text) {
     }
 }
 
-
 // --- 2. DỮ LIỆU BẢNG CHỮ CÁI ---
 const rowLabelsSeion = ["Hàng あ (a)", "Hàng か (ka)", "Hàng さ (sa)", "Hàng た (ta)", "Hàng な (na)", "Hàng は (ha)", "Hàng ま (ma)", "Hàng や (ya)", "Hàng ら (ra)", "Hàng わ (wa)", "Hàng ん (n)"];
 const rowLabelsDakuon = ["Hàng が (ga)", "Hàng ざ (za)", "Hàng だ (da)", "Hàng ば (ba)", "Hàng ぱ (pa)"];
@@ -592,15 +591,104 @@ renderGrammarList();
 // --- 5. BÀI TẬP TRẮC NGHIỆM NGẪU NHIÊN ---
 const questionBank = [
     { q: "Chữ 'あ' trong Hiragana đọc là gì?", options: ["a", "i", "u", "e"], answer: 0 },
+    { q: "Chữ 'い' trong Hiragana đọc là gì?", options: ["a", "i", "u", "e"], answer: 1 },
+    { q: "Chữ 'う' trong Hiragana đọc là gì?", options: ["a", "i", "u", "o"], answer: 2 },
+    { q: "Chữ 'え' trong Hiragana đọc là gì?", options: ["e", "i", "u", "o"], answer: 0 },
+    { q: "Chữ 'お' trong Hiragana đọc là gì?", options: ["a", "i", "o", "e"], answer: 2 },
+    { q: "Cách đọc số đếm vật thể '1 cái' (hitotsu) viết bằng Kanji như thế nào?", options: ["一つ", "二つ", "三つ", "四つ"], answer: 0 },
+    { q: "Cách đọc số đếm vật thể '2 cái' (futatsu) là gì?", options: ["hitotsu", "futatsu", "mittsu", "yottsu"], answer: 1 },
+    { q: "Cách đọc số đếm vật thể '3 cái' (mittsu) viết bằng Kanji như thế nào?", options: ["一つ", "二つ", "三つ", "四つ"], answer: 2 },
+    { q: "Cách đọc số đếm vật thể '4 cái' (yottsu) là gì?", options: ["hitotsu", "futatsu", "mittsu", "yottsu"], answer: 3 },
+    { q: "Cách đọc số đếm vật thể '5 cái' là gì?", options: ["itsutsu", "muttsu", "nanatsu", "yattsu"], answer: 0 },
+    { q: "Cách đọc số đếm vật thể '6 cái' là gì?", options: ["itsutsu", "muttsu", "nanatsu", "yattsu"], answer: 1 },
+    { q: "Cách đọc số đếm vật thể '7 cái' là gì?", options: ["itsutsu", "muttsu", "nanatsu", "yattsu"], answer: 2 },
+    { q: "Cách đọc số đếm vật thể '8 cái' là gì?", options: ["itsutsu", "muttsu", "nanatsu", "yattsu"], answer: 3 },
+    { q: "Cách đọc số đếm vật thể '9 cái' là gì?", options: ["kokonotsu", "too", "hitotsu", "futatsu"], answer: 0 },
+    { q: "Cách đọc số đếm vật thể '10 cái' là gì?", options: ["kokonotsu", "too", "hitotsu", "futatsu"], answer: 1 },
     { q: "Cách đọc đặc biệt cho '20 tuổi' trong tiếng Nhật là gì?", options: ["nijuusai", "hatachi", "nijusai", "hata"], answer: 1 },
     { q: "Từ 'としょかん' (toshokan) có nghĩa tiếng Việt là gì?", options: ["Bưu điện", "Thư viện", "Ngân hàng", "Bệnh viện"], answer: 1 },
-    { q: "Cách đếm 'Tầng 1' chuẩn trong tiếng Nhật là gì?", options: ["ikkai", "nikai", "sangai", "yonkai"], answer: 0 },
+    { q: "Cách đếm 'Tầng 1' (ikkai) viết bằng Kanji như thế nào?", options: ["一階", "二階", "三階", "四階"], answer: 0 },
+    { q: "Cách đếm 'Tầng 2' là gì?", options: ["ikkai", "nikai", "sangai", "yonkai"], answer: 1 },
+    { q: "Cách đếm 'Tầng 3' là gì?", options: ["ikkai", "nikai", "sangai", "yonkai"], answer: 2 },
     { q: "Từ 'いくら' (ikura) dùng để hỏi về điều gì?", options: ["Giá tiền", "Thời gian", "Vị trí", "Xuất xứ"], answer: 0 },
-    { q: "Tháng 4 trong tiếng Nhật đọc là gì?", options: ["yongatsu", "shigatsu", "yongatsu", "shigatsu"], answer: 1 },
+    { q: "Tháng 4 trong tiếng Nhật đọc là gì?", options: ["yongatsu", "shigatsu", "yonogatsu", "shigatsu"], answer: 1 },
+    { q: "Tháng 7 trong tiếng Nhật đọc là gì?", options: ["nanagatsu", "shichigatsu", "shichigatsu", "nanagatsu"], answer: 1 },
+    { q: "Tháng 9 trong tiếng Nhật đọc là gì?", options: ["kyuugatsu", "kugatsu", "kugatsu", "kyuugatsu"], answer: 1 },
     { q: "Cấu trúc 'từ [A] đến [B]' trong tiếng Nhật dùng trợ từ nào?", options: ["kara ... made", "wa ... desu", "ni ... de", "no ... to"], answer: 0 },
     { q: "Từ 'たんじょうび' (tanjoubi) có nghĩa là gì?", options: ["Sinh nhật", "Sở thích", "Nghề nghiệp", "Du lịch"], answer: 0 },
     { q: "Từ 'ぎんこう' (ginkou) có nghĩa là gì?", options: ["Bệnh viện", "Ngân hàng", "Thư viện", "Bưu điện"], answer: 1 },
-    { q: "Câu hỏi 'Bây giờ là mấy giờ?' tiếng Nhật là gì?", options: ["いま なんじ ですか", "いま いくら ですか", "いま どこ ですか", "いま なんさい ですか"], answer: 0 }
+    { q: "Câu hỏi 'Bây giờ là mấy giờ?' tiếng Nhật là gì?", options: ["いま なんじ ですか", "いま いくら ですか", "いま どこ ですか", "いま なんさい ですか"], answer: 0 },
+    { q: "Từ 'びょういん' (byouin) nghĩa là gì?", options: ["Bệnh viện", "Bưu điện", "Thư viện", "Ngân hàng"], answer: 0 },
+    { q: "Từ 'ゆうびんきょく' (yuubinkyoku) nghĩa là gì?", options: ["Bệnh viện", "Bưu điện", "Thư viện", "Ngân hàng"], answer: 1 },
+    { q: "Từ 'おちゃ' (ocha) nghĩa là gì?", options: ["Trà xanh", "Trà đen", "Cà phê", "Nước"], answer: 0 },
+    { q: "Từ 'こうちゃ' (koucha) nghĩa là gì?", options: ["Trà xanh", "Trà đen", "Cà phê", "Nước"], answer: 1 },
+    { q: "Từ 'コーヒー' (koohii) nghĩa là gì?", options: ["Trà xanh", "Trà đen", "Cà phê", "Nước"], answer: 2 },
+    { q: "Từ 'みず' (mizu) nghĩa là gì?", options: ["Nước", "Gạo", "Cá", "Thịt"], answer: 0 },
+    { q: "Từ 'さかな' (sakana) nghĩa là gì?", options: ["Nước", "Gạo", "Cá", "Thịt"], answer: 2 },
+    { q: "Từ 'にく' (niku) nghĩa là gì?", options: ["Nước", "Gạo", "Cá", "Thịt"], answer: 3 },
+    { q: "Từ 'ぎゅうにく' (gyuuniku) nghĩa là gì?", options: ["Thịt bò", "Thịt gà", "Thịt lợn", "Cá"], answer: 0 },
+    { q: "Từ 'とりにく' (toriniku) nghĩa là gì?", options: ["Thịt bò", "Thịt gà", "Thịt lợn", "Cá"], answer: 1 },
+    { q: "Từ 'やさい' (yasai) nghĩa là gì?", options: ["Rau củ", "Trái cây", "Thịt", "Cá"], answer: 0 },
+    { q: "Từ 'いちご' (ichigo) nghĩa là gì?", options: ["Táo", "Dâu tây", "Cam", "Chuối"], answer: 1 },
+    { q: "Từ 'せんせい' (sensei) nghĩa là gì?", options: ["Học sinh", "Giáo viên", "Bác sĩ", "Kỹ sư"], answer: 1 },
+    { q: "Từ 'がくせい' (gakusei) nghĩa là gì?", options: ["Học sinh, sinh viên", "Giáo viên", "Bác sĩ", "Nhân viên"], answer: 0 },
+    { q: "Từ 'いしゃ' (isha) nghĩa là gì?", options: ["Giáo viên", "Bác sĩ", "Y tá", "Nhân viên"], answer: 1 },
+    { q: "Từ 'かいしゃいん' (kaishain) nghĩa là gì?", options: ["Nhân viên công ty", "Học sinh", "Giáo viên", "Bác sĩ"], answer: 0 },
+    { q: "Từ 'てんいん' (tenin) nghĩa là gì?", options: ["Nhân viên bán hàng", "Nhân viên công ty", "Bác sĩ", "Giáo viên"], answer: 0 },
+    { q: "Từ 'じしょ' (jisho) nghĩa là gì?", options: ["Sách", "Từ điển", "Tạp chí", "Vở"], answer: 1 },
+    { q: "Từ 'ざっし' (zasshi) nghĩa là gì?", options: ["Sách", "Từ điển", "Tạp chí", "Vở"], answer: 2 },
+    { q: "Từ 'ノート' (nooto) nghĩa là gì?", options: ["Vở, sổ tay", "Sách", "Bút", "Cặp"], answer: 0 },
+    { q: "Từ 'えんぴつ' (enpitsu) nghĩa là gì?", options: ["Bút chì", "Bút bi", "Cục tẩy", "Thước kẻ"], answer: 0 },
+    { q: "Từ 'かばん' (kaban) nghĩa là gì?", options: ["Cặp sách, túi xách", "Giày", "Quần", "Áo"], answer: 0 },
+    { q: "Từ 'とけい' (tokei) nghĩa là gì?", options: ["Đồng hồ", "Xe hơi", "Máy ảnh", "Điện thoại"], answer: 0 },
+    { q: "Từ 'くるま' (kuruma) nghĩa là gì?", options: ["Xe hơi, ô tô", "Xe đạp", "Xe máy", "Tàu hỏa"], answer: 0 },
+    { q: "Từ 'カメラ' (kamera) nghĩa là gì?", options: ["Máy ảnh", "Máy tính", "Tủ lạnh", "Tivi"], answer: 0 },
+    { q: "Từ 'パソコン' (pasokon) nghĩa là gì?", options: ["Máy tính xách tay", "Điện thoại", "Máy ảnh", "Tivi"], answer: 0 },
+    { q: "Từ 'くつ' (kutsu) nghĩa là gì?", options: ["Giày", "Quần", "Áo", "Mũ"], answer: 0 },
+    { q: "Từ 'スポーツ' (supootsu) nghĩa là gì?", options: ["Thể thao", "Sở thích", "Du lịch", "Xem phim"], answer: 0 },
+    { q: "Từ 'サッカー' (sakkaa) nghĩa là gì?", options: ["Bóng đá", "Quần vợt", "Bơi lội", "Bóng rổ"], answer: 0 },
+    { q: "Từ 'テニス' (tenisu) nghĩa là gì?", options: ["Bóng đá", "Quần vợt", "Bơi lội", "Bóng rổ"], answer: 1 },
+    { q: "Từ 'すいえい' (suiei) nghĩa là gì?", options: ["Bơi lội", "Đọc sách", "Nấu ăn", "Du lịch"], answer: 0 },
+    { q: "Từ 'りょこう' (ryokou) nghĩa là gì?", options: ["Du lịch", "Xem phim", "Đọc sách", "Âm nhạc"], answer: 0 },
+    { q: "Từ 'えいが' (eiga) nghĩa là gì?", options: ["Du lịch", "Xem phim", "Đọc sách", "Âm nhạc"], answer: 1 },
+    { q: "Từ 'おんがく' (ongaku) nghĩa là gì?", options: ["Du lịch", "Xem phim", "Đọc sách", "Âm nhạc"], answer: 3 },
+    { q: "Từ 'どくしょ' (dokusho) nghĩa là gì?", options: ["Đọc sách", "Nấu ăn", "Xem phim", "Du lịch"], answer: 0 },
+    { q: "Từ 'りょうり' (ryouri) nghĩa là gì?", options: ["Nấu ăn, món ăn", "Đọc sách", "Xem phim", "Du lịch"], answer: 0 },
+    { q: "Số 100 trong tiếng Nhật đọc là gì?", options: ["hyaku", "sen", "man", "en"], answer: 0 },
+    { q: "Số 1.000 trong tiếng Nhật đọc là gì?", options: ["hyaku", "sen", "man", "en"], answer: 1 },
+    { q: "Số 10.000 trong tiếng Nhật đọc là gì?", options: ["hyaku", "sen", "man", "en"], answer: 2 },
+    { q: "Đơn vị tiền tệ của Nhật Bản là gì?", options: ["en", "won", "dollar", "dong"], answer: 0 },
+    { q: "Từ 'ひゃく' (hyaku) có giá trị số là bao nhiêu?", options: ["10", "100", "1.000", "10.000"], answer: 1 },
+    { q: "Từ 'せん' (sen) có giá trị số là bao nhiêu?", options: ["10", "100", "1.000", "10.000"], answer: 2 },
+    { q: "Từ 'まん' (man) có giá trị số là bao nhiêu?", options: ["10", "100", "1.000", "10.000"], answer: 3 },
+    { q: "Mùng 1 trong tháng đọc là gì?", options: ["tsuitachi", "futsuka", "mikka", "yokka"], answer: 0 },
+    { q: "Mùng 2 trong tháng đọc là gì?", options: ["tsuitachi", "futsuka", "mikka", "yokka"], answer: 1 },
+    { q: "Mùng 3 trong tháng đọc là gì?", options: ["tsuitachi", "futsuka", "mikka", "yokka"], answer: 2 },
+    { q: "Mùng 4 trong tháng đọc là gì?", options: ["tsuitachi", "futsuka", "mikka", "yokka"], answer: 3 },
+    { q: "Ngày 14 trong tháng đọc là gì?", options: ["juuyokka", "juusannichi", "juugonichi", "juurokunichi"], answer: 0 },
+    { q: "Ngày 20 trong tháng đọc là gì?", options: ["hatsuka", "nijyuunichi", "juuyokka", "tsuitachi"], answer: 0 },
+    { q: "Buổi sáng (AM) trong tiếng Nhật là gì?", options: ["gozen", "gogo", "hiru", "ima"], answer: 0 },
+    { q: "Buổi chiều (PM) trong tiếng Nhật là gì?", options: ["gozen", "gogo", "hiru", "ima"], answer: 1 },
+    { q: "Buổi trưa trong tiếng Nhật là gì?", options: ["gozen", "gogo", "hiru", "ima"], answer: 2 },
+    { q: "Từ 'いま' (ima) nghĩa là gì?", options: ["Bây giờ", "Hôm nay", "Ngày mai", "Hôm qua"], answer: 0 },
+    { q: "Từ 'やすみ' (yasumi) nghĩa là gì?", options: ["Nghỉ ngơi, ngày nghỉ", "Thời gian", "Tiết học", "Kiểm tra"], answer: 0 },
+    { q: "Từ 'テスト' (tesuto) nghĩa là gì?", options: ["Kiểm tra", "Nghỉ ngơi", "Thời gian", "Tiết học"], answer: 0 },
+    { q: "Từ 'じかん' (jikan) nghĩa là gì?", options: ["Thời gian", "Kiểm tra", "Nghỉ ngơi", "Tiết học"], answer: 0 },
+    { q: "Từ 'はん' (han) nghĩa là gì?", options: ["Rưỡi / 30 phút", "Giờ", "Phút", "Giây"], answer: 0 },
+    { q: "Trợ từ nào dùng để chỉ chủ ngữ hoặc chủ đề trong câu?", options: ["wa", "o", "ni", "de"], answer: 0 },
+    { q: "Trợ từ nào dùng để thể hiện sự sở hữu (của)?", options: ["no", "wa", "o", "ni"], answer: 0 },
+    { q: "Trợ từ nào dùng để thêm ý nghĩa 'cũng'?", options: ["mo", "wa", "no", "o"], answer: 0 },
+    { q: "Từ nào dùng để hỏi 'Cái gì'?", options: ["nan / nani", "dare", "doko", "itsu"], answer: 0 },
+    { q: "Từ nào dùng để hỏi 'Ai'?", options: ["nan", "dare", "doko", "itsu"], answer: 1 },
+    { q: "Từ nào dùng để hỏi 'Ở đâu'?", options: ["nan", "dare", "doko", "itsu"], answer: 2 },
+    { q: "Từ nào dùng để hỏi 'Khi nào / Bao giờ'?", options: ["nan", "dare", "doko", "itsu"], answer: 3 },
+    { q: "Từ 'chỗ đó / ở đó' gần người nghe đọc là gì?", options: ["koko", "soko", "asoko", "doko"], answer: 1 },
+    { q: "Từ 'chỗ kia / ở kia' xa cả người nói và người nghe đọc là gì?", options: ["koko", "soko", "asoko", "doko"], answer: 2 },
+    { q: "Từ 'ở đây / chỗ này' gần người nói đọc là gì?", options: ["koko", "soko", "asoko", "doko"], answer: 0 },
+    { q: "Hàng 'ka' trong bảng chữ cái Hiragana gồm các chữ cái nào?", options: ["ka ki ku ke ko", "sa shi su se so", "ta chi tsu te to", "na ni nu ne no"], answer: 0 },
+    { q: "Hàng 'sa' trong bảng chữ cái Hiragana gồm các chữ cái nào?", options: ["ka ki ku ke ko", "sa shi su se so", "ta chi tsu te to", "na ni nu ne no"], answer: 1 },
+    { q: "Hàng 'ta' trong bảng chữ cái Hiragana gồm các chữ cái nào?", options: ["ka ki ku ke ko", "sa shi su se so", "ta chi tsu te to", "na ni nu ne no"], answer: 2 },
+    { q: "Hàng 'na' trong bảng chữ cái Hiragana gồm các chữ cái nào?", options: ["ka ki ku ke ko", "sa shi su se so", "ta chi tsu te to", "na ni nu ne no"], answer: 3 }
 ];
 
 let currentQuizList = [];
@@ -612,7 +700,7 @@ document.getElementById('restartQuizBtn').addEventListener('click', startQuiz);
 document.getElementById('nextQuizBtn').addEventListener('click', handleNextQuestion);
 
 function startQuiz() {
-    currentQuizList = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 5);
+    currentQuizList = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 10);
     currentQuestionIndex = 0;
     score = 0;
 
@@ -647,9 +735,14 @@ function selectAnswer(selectedIndex, btnElement, correctIndex) {
     let allBtns = document.querySelectorAll('.quiz-option-btn');
     allBtns.forEach(b => b.disabled = true);
 
-    if (selectedIndex === correctIndex) {
+    const isCorrect = (selectedIndex === correctIndex);
+    
+    // PHÁT ÂM THANH ĐÚNG HOẶC SAI TỰ ĐỘNG
+    playFeedbackSound(isCorrect);
+
+    if (isCorrect) {
         btnElement.classList.add('correct');
-        score += 20;
+        score += 10;
     } else {
         btnElement.classList.add('incorrect');
         allBtns[correctIndex].classList.add('correct');
@@ -662,6 +755,30 @@ function selectAnswer(selectedIndex, btnElement, correctIndex) {
     } else {
         setTimeout(showQuizResult, 1200);
     }
+}
+
+// --- PHÁT ÂM THANH ĐÚNG / SAI ---
+function playFeedbackSound(isCorrect) {
+    // isCorrect = true đọc là "せいかい" (Seikai - Đúng)
+    // isCorrect = false đọc là "ふせいかい" (Fuseikai - Sai)
+    const textToSpeak = isCorrect ? "せいかい" : "ふせいかい";
+    
+    const googleTranslateAudioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(textToSpeak)}&tl=ja&client=tw-ob`;
+    
+    const audio = new Audio(googleTranslateAudioUrl);
+    audio.volume = 1.0;
+    audio.play().catch(error => {
+        console.warn("Lỗi phát âm phản hồi, dùng Web Speech API dự phòng:", error);
+        
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = 'ja-JP';
+            utterance.rate = 1.0;
+            utterance.pitch = 1.0;
+            window.speechSynthesis.speak(utterance);
+        }
+    });
 }
 
 function handleNextQuestion() {
